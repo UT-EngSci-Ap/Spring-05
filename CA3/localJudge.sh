@@ -3,8 +3,8 @@
 
 # Config
 BINARY="./installer"
-IN_DIR="./in"
-OUT_DIR="./out"
+IN_DIR="./testCases/in"
+OUT_DIR="./testCases/out"
 TIME_LIMIT=3
 NUM_TESTS=100
 

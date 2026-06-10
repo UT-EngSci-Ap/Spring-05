@@ -12,15 +12,18 @@ endif
 # ─── Output binary ───────────────────────────────────────────────────────────
 TARGET  := installer
 
+# ─── Source directory ────────────────────────────────────────────────────────
+SRCDIR  := src
+
 # ─── Sources & objects ───────────────────────────────────────────────────────
-SRCS    := main.cpp \
-           ComponentState.cpp \
-           Helpers.cpp \
-           Installable.cpp \
-           SystemLogger.cpp \
-           Module.cpp \
-           Package.cpp \
-           InstallationEngine.cpp
+SRCS    := $(SRCDIR)/main.cpp \
+           $(SRCDIR)/ComponentState.cpp \
+           $(SRCDIR)/Helpers.cpp \
+           $(SRCDIR)/Installable.cpp \
+           $(SRCDIR)/SystemLogger.cpp \
+           $(SRCDIR)/Module.cpp \
+           $(SRCDIR)/Package.cpp \
+           $(SRCDIR)/InstallationEngine.cpp
 
 OBJS    := $(SRCS:.cpp=.o)
 
@@ -36,15 +39,15 @@ $(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 # ─── Explicit header dependencies ────────────────────────────────────────────
-main.o:                InstallationEngine.h Helpers.h
-ComponentState.o:      ComponentState.h
-Helpers.o:             Helpers.h
-Installable.o:         Installable.h ComponentState.h Observer.h TransactionContext.h
-SystemLogger.o:        SystemLogger.h Observer.h Installable.h
-Module.o:              Module.h Installable.h
-Package.o:             Package.h Installable.h
-InstallationEngine.o:  InstallationEngine.h Module.h Package.h Helpers.h \
-                       TransactionContext.h SystemLogger.h
+$(SRCDIR)/main.o:                $(SRCDIR)/InstallationEngine.h $(SRCDIR)/Helpers.h
+$(SRCDIR)/ComponentState.o:      $(SRCDIR)/ComponentState.h
+$(SRCDIR)/Helpers.o:             $(SRCDIR)/Helpers.h
+$(SRCDIR)/Installable.o:         $(SRCDIR)/Installable.h $(SRCDIR)/ComponentState.h $(SRCDIR)/Observer.h $(SRCDIR)/TransactionContext.h
+$(SRCDIR)/SystemLogger.o:        $(SRCDIR)/SystemLogger.h $(SRCDIR)/Observer.h $(SRCDIR)/Installable.h
+$(SRCDIR)/Module.o:              $(SRCDIR)/Module.h $(SRCDIR)/Installable.h
+$(SRCDIR)/Package.o:             $(SRCDIR)/Package.h $(SRCDIR)/Installable.h
+$(SRCDIR)/InstallationEngine.o:  $(SRCDIR)/InstallationEngine.h $(SRCDIR)/Module.h $(SRCDIR)/Package.h $(SRCDIR)/Helpers.h \
+                                 $(SRCDIR)/TransactionContext.h $(SRCDIR)/SystemLogger.h
 
 # ─── Utility targets ─────────────────────────────────────────────────────────
 .PHONY: clean run
