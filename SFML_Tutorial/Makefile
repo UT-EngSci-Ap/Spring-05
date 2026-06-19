@@ -51,4 +51,4 @@ $(DEBUG): $(OBJ)
 	$(CXX) $(CXXFLAGS) -g $^ -o $@ $(USE_LIB) $(LIBS)
 
 clean:
-	rm -r $(BUILD_DIR) $(DEBUG_DIR) $(RELEASE_DIR)
+	rm -r $(BUILD_DIR) $(RELEASE) $(DEBUG)
