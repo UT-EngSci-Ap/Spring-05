@@ -2,7 +2,7 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode({800, 600}), "Test");
+    sf::RenderWindow window(sf::VideoMode({800, 600}), "Blank Window");
 
     while (window.isOpen())
     {
