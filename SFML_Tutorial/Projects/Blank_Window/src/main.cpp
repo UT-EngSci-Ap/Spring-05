@@ -1,8 +1,8 @@
-#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode({800, 600}), "Blank Window");
+    sf::Window window(sf::VideoMode({800, 600}), "Blank Window");
 
     while (window.isOpen())
     {
@@ -13,9 +13,6 @@ int main()
             if (event->is<sf::Event::Closed>())
                 window.close();
         }
-
-        window.clear();
-        window.display();
     }
 
     return 0;
