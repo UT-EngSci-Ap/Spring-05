@@ -1,25 +1,35 @@
-#include "game.h"
+#include "Game.h"
 #include <SFML/Window.hpp>
 #include <iostream>
 #include "MainMenu.h"
+#include "ResourceManaegr.h"
+
+Game::Game() : window(sf::VideoMode({900, 600}), "Event Handling"),
+               resourceManager("../../img"),
+               mainMenu(nullptr)
+{
+    mainMenu = new MainMenu(resourceManager, window.getSize());
+}
 
 void Game::processEvents()
 {
-    while (const std::optional event = window.pollEvent())
-    {
-        mainMenu->handleEvent(*event);
-    }
 }
 
 void Game::run()
 {
-    window.create(sf::VideoMode({900, 600}), "Event Handling");
 
     while (window.isOpen())
     {
-        processEvents();
+        while (const std::optional event = window.pollEvent())
+        {
+            mainMenu->handleEvent(*event);
+        }
         window.clear(sf::Color::Black);
         mainMenu->draw(window);
         window.display();
+        if (mainMenu->getTransition() == EXIT)
+        {
+            window.close();
+        }
     }
 }
