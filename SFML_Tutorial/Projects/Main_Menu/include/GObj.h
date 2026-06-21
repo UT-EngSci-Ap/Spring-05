@@ -9,7 +9,7 @@ protected:
 
 public:
     virtual ~GObj() = default;
-    GObj(const sf::Sprite t) : sprite(t) {}
+    GObj(const sf::Texture &t) : sprite(t) {}
     void draw(sf::RenderWindow &);
 };
 
