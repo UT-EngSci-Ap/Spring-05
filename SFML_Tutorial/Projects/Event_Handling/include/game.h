@@ -12,6 +12,8 @@ private:
     void onClosed();
     void onMouseMoved(const sf::Event::MouseMoved &);
     void onMouseButtonPressed(const sf::Event::MouseButtonPressed &);
+    void onKeyPressed(const sf::Event::KeyPressed &);
+    void onKeyReleased(const sf::Event::KeyReleased &);
 
 public:
     Game() : mouse_position({0, 0}) {}

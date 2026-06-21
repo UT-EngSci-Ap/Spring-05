@@ -16,12 +16,34 @@ void Game::processEvents()
         [&](const sf::Event::MouseButtonPressed &e)
         {
             onMouseButtonPressed(e);
-        });
+        },
+        [&](const sf::Event::KeyPressed &e)
+        {
+            onKeyPressed(e);
+        },
+        [&](const sf::Event::KeyReleased &e)
+        {
+            onKeyReleased(e);
+        }
+
+    );
 }
 
+void Game::onKeyPressed(const sf::Event::KeyPressed &event)
+{
+    if (event.scancode == sf::Keyboard::Scancode::Escape)
+    {
+        window.close();
+    }
+    std::cout << "A key is pressed\n";
+}
+void Game::onKeyReleased(const sf::Event::KeyReleased &)
+{
+    std::cout << "The key is released\n";
+}
 void Game::onMouseButtonPressed(const sf::Event::MouseButtonPressed &event)
 {
-    std::cout << "mouse position is: (" << mouse_position.first << ", " << mouse_position.second << ")\n";
+    std::cout << "Mouse position is: (" << mouse_position.first << ", " << mouse_position.second << ")\n";
 }
 
 void Game::onClosed()
