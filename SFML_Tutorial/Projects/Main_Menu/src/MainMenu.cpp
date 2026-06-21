@@ -1,10 +1,22 @@
 #include "MainMenu.h"
 #include "ResourceManaegr.h"
+#include "LayOut.h"
+#include <iostream>
+MainMenu::MainMenu(ResourceManager &resource, sf::Vector2u winSize) : back_ground(resource.getTexture("background.png")),
+                                                                      start(resource.getTexture("start_button.png")),
+                                                                      load(resource.getTexture("load_button.png")),
+                                                                      exit(resource.getTexture("exit_button.png"))
+{
+    LayOut::fill(back_ground, winSize);
 
-MainMenu::MainMenu(ResourceManager &resource) : back_ground(resource.getTexture("background.png")),
-                                                start(resource.getTexture("start_button.png")),
-                                                load(resource.getTexture("load_button.png")),
-                                                exit(resource.getTexture("exit_button.png")) {}
+    start.setScale({0.5, 0.5});
+    load.setScale({0.5, 0.5});
+    exit.setScale({0.5, 0.5});
+    LayOut::centerVertical(
+        {start, load, exit},
+        winSize,
+        0.1);
+}
 
 void MainMenu::handleEvent(const sf::Event &event)
 {
@@ -26,19 +38,24 @@ void MainMenu::draw(sf::RenderWindow &window)
     exit.draw(window);
 }
 
+Transition MainMenu::getTransition() const
+{
+    return transition;
+}
+
 void MainMenu::onMouseButtonReleased(const sf::Event::MouseButtonReleased &mouse)
 {
-    if (mouse.button == sf::Mouse::Button::Right)
+    if (mouse.button == sf::Mouse::Button::Left)
     {
         if (start.isHovered(mouse.position))
         {
-            // do nothing
+            std::cout << "on start button\n";
         }
         else if (load.isHovered(mouse.position))
         {
-            // do nothing
+            std::cout << "on load button\n";
         }
-        else if (load.isHovered(mouse.position))
+        else if (exit.isHovered(mouse.position))
         {
             transition = EXIT;
         }

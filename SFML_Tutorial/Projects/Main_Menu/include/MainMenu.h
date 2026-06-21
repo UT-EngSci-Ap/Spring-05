@@ -15,11 +15,13 @@ private:
 
     Transition transition;
 
+    void onMouseButtonReleased(const sf::Event::MouseButtonReleased &);
+
 public:
-    MainMenu(ResourceManager &);
+    MainMenu(ResourceManager &, sf::Vector2u);
     void handleEvent(const sf::Event &);
     void draw(sf::RenderWindow &);
-    void onMouseButtonReleased(const sf::Event::MouseButtonReleased &);
+    Transition getTransition() const;
 };
 
 #endif
