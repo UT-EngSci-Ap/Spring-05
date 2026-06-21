@@ -2,21 +2,22 @@
 #define __GAME__
 
 #include <SFML/Window.hpp>
+#include "MainMenu.h"
 
 class Game
 {
 private:
-    sf::Window window;
+    sf::RenderWindow window;
     std::pair<int, int> mouse_position;
+    ResourceManager resourceManager;
+    MainMenu *mainMenu;
     void processEvents();
-    void onClosed();
-    void onMouseMoved(const sf::Event::MouseMoved &);
-    void onMouseButtonPressed(const sf::Event::MouseButtonPressed &);
-    void onKeyPressed(const sf::Event::KeyPressed &);
-    void onKeyReleased(const sf::Event::KeyReleased &);
 
 public:
-    Game() : mouse_position({0, 0}) {}
+    Game() : mouse_position({0, 0}), resourceManager("../../img"), mainMenu(nullptr)
+    {
+        mainMenu = new MainMenu(resourceManager);
+    }
     void run();
 };
 
