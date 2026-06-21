@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/Projects/Event_Handling/include",
-                "${workspaceFolder}/SFML/include"
+                "${workspaceFolder}/SFML/include",
+                "${workspaceFolder}/Projects/Main_Menu/include"
             ],
             "defines": [
                 "_DEBUG",
