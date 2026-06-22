@@ -17,7 +17,7 @@ private:
     void onMouseButtonReleased(const sf::Event::MouseButtonReleased &);
 
 public:
-    MainMenu(resource_manager &, sf::Vector2u);
+    MainMenu(ResourceManager &, sf::Vector2u);
     void handleEvent(const sf::Event &) override;
     void draw(sf::RenderWindow &) override;
     Transition getTransition() const;
