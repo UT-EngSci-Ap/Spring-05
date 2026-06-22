@@ -1,20 +1,22 @@
 #include "MainMenu.h"
 #include "ResourceManaegr.h"
 #include "LayOut.h"
+#include "State.h"
 #include <iostream>
-MainMenu::MainMenu(ResourceManager &resource, sf::Vector2u winSize) : back_ground(resource.getTexture("background.png")),
-                                                                      start(resource.getTexture("start_button.png")),
-                                                                      load(resource.getTexture("load_button.png")),
-                                                                      exit(resource.getTexture("exit_button.png"))
+MainMenu::MainMenu(ResourceManager &resource, sf::Vector2u w) : State(w),
+                                                                back_ground(resource.getTexture("background.png")),
+                                                                start(resource.getTexture("start_button.png")),
+                                                                load(resource.getTexture("load_button.png")),
+                                                                exit(resource.getTexture("exit_button.png"))
 {
-    LayOut::fill(back_ground, winSize);
+    LayOut::fill(back_ground, win_size);
 
     start.setScale({0.5, 0.5});
     load.setScale({0.5, 0.5});
     exit.setScale({0.5, 0.5});
     LayOut::centerVertical(
         {start, load, exit},
-        winSize,
+        win_size,
         0.1);
 }
 

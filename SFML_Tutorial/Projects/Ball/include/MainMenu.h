@@ -4,8 +4,9 @@
 #include "GObj.h"
 #include "Transition.h"
 #include "ResourceManaegr.h"
+#include "State.h"
 
-class MainMenu
+class MainMenu : public State
 {
 private:
     GObj back_ground;
@@ -13,14 +14,12 @@ private:
     Button load;
     Button exit;
 
-    Transition transition;
-
     void onMouseButtonReleased(const sf::Event::MouseButtonReleased &);
 
 public:
-    MainMenu(ResourceManager &, sf::Vector2u);
-    void handleEvent(const sf::Event &);
-    void draw(sf::RenderWindow &);
+    MainMenu(resource_manager &, sf::Vector2u);
+    void handleEvent(const sf::Event &) override;
+    void draw(sf::RenderWindow &) override;
     Transition getTransition() const;
 };
 

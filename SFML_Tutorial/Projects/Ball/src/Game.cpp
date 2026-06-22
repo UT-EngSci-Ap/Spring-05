@@ -5,10 +5,10 @@
 #include "ResourceManaegr.h"
 
 Game::Game() : window(sf::VideoMode({900, 600}), "Event Handling"),
-               resourceManager("../../img"),
+               resource_manager("../../img"),
                mainMenu(nullptr)
 {
-    mainMenu = new MainMenu(resourceManager, window.getSize());
+    mainMenu = new MainMenu(resource_manager, window.getSize());
 }
 
 void Game::processEvents()
