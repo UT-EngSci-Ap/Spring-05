@@ -6,13 +6,9 @@
 
 Game::Game() : window(sf::VideoMode({900, 600}), "Event Handling"),
                resource_manager("../../img"),
-               mainMenu(nullptr)
+               current_state(nullptr)
 {
-    mainMenu = new MainMenu(resource_manager, window.getSize());
-}
-
-void Game::processEvents()
-{
+    current_state = new MainMenu(resource_manager, window.getSize());
 }
 
 void Game::run()
@@ -22,12 +18,12 @@ void Game::run()
     {
         while (const std::optional event = window.pollEvent())
         {
-            mainMenu->handleEvent(*event);
+            current_state->handleEvent(*event);
         }
         window.clear(sf::Color::Black);
-        mainMenu->draw(window);
+        current_state->draw(window);
         window.display();
-        if (mainMenu->getTransition() == EXIT)
+        if (current_state->getTransition() == EXIT)
         {
             window.close();
         }
