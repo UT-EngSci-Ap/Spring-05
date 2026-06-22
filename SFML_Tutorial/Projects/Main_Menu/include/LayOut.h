@@ -5,7 +5,7 @@
 
 namespace LayOut
 {
-    void centerVertical(std::vector<std::reference_wrapper<GObj>>, sf::Vector2u winSize, float spacing);
+    void centerVertical(std::vector<std::reference_wrapper<GObj>>, sf::Vector2u win_size, float spacing);
 
     void fill(GObj &, sf::Vector2u);
 };

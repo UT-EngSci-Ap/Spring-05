@@ -5,14 +5,10 @@
 #include "ResourceManager.h"
 
 Game::Game() : window(sf::VideoMode({900, 600}), "Event Handling"),
-               resourceManager("../../img"),
-               mainMenu(nullptr)
+               resource_manager("../../img"),
+               main_menu(nullptr)
 {
-    mainMenu = new MainMenu(resourceManager, window.getSize());
-}
-
-void Game::processEvents()
-{
+    main_menu = new MainMenu(resource_manager, window.getSize());
 }
 
 void Game::run()
@@ -22,12 +18,12 @@ void Game::run()
     {
         while (const std::optional event = window.pollEvent())
         {
-            mainMenu->handleEvent(*event);
+            main_menu->handleEvent(*event);
         }
         window.clear(sf::Color::Black);
-        mainMenu->draw(window);
+        main_menu->draw(window);
         window.display();
-        if (mainMenu->getTransition() == EXIT)
+        if (main_menu->getTransition() == EXIT)
         {
             window.close();
         }

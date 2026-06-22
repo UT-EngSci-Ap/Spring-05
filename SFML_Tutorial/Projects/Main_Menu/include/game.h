@@ -10,7 +10,7 @@ class Game
 private:
     sf::RenderWindow window;
     ResourceManager resource_manager;
-    MainMenu *mainMenu;
+    MainMenu *main_menu;
     void processEvents();
 
 public:
