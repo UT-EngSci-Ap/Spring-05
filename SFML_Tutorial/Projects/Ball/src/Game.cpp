@@ -2,7 +2,7 @@
 #include <SFML/Window.hpp>
 #include <iostream>
 #include "MainMenu.h"
-#include "ResourceManaegr.h"
+#include "ResourceManager.h"
 
 Game::Game() : window(sf::VideoMode({900, 600}), "Event Handling"),
                resource_manager("../../img"),

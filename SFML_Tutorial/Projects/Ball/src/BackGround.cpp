@@ -1,6 +1,6 @@
 #include "BackGround.h"
 #include <SFML/Graphics.hpp>
-#include "ResourceManaegr.h"
+#include "ResourceManager.h"
 BackGround::BackGround(const sf::Texture &t) : sprite(t) {}
 
 void BackGround::draw(sf::RenderWindow &window)

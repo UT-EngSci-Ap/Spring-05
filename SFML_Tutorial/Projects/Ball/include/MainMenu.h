@@ -2,7 +2,7 @@
 #define __MAIN_MENU__
 #include "Button.h"
 #include "Transition.h"
-#include "ResourceManaegr.h"
+#include "ResourceManager.h"
 #include "State.h"
 #include "BackGround.h"
 

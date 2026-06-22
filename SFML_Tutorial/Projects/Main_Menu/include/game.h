@@ -3,7 +3,7 @@
 
 #include <SFML/Window.hpp>
 #include "MainMenu.h"
-#include "ResourceManaegr.h"
+#include "ResourceManager.h"
 
 class Game
 {

@@ -3,7 +3,7 @@
 #include "Button.h"
 #include "GObj.h"
 #include "Transition.h"
-#include "ResourceManaegr.h"
+#include "ResourceManager.h"
 
 class MainMenu
 {

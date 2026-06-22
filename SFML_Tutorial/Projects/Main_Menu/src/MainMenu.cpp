@@ -1,5 +1,5 @@
 #include "MainMenu.h"
-#include "ResourceManaegr.h"
+#include "ResourceManager.h"
 #include "LayOut.h"
 #include <iostream>
 MainMenu::MainMenu(ResourceManager &resource, sf::Vector2u winSize) : back_ground(resource.getTexture("background.png")),
