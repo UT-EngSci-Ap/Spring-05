@@ -5,7 +5,7 @@
 #include "ResourceManager.h"
 
 Game::Game() : window(sf::VideoMode({900, 600}), "Event Handling"),
-               resource_manager("../../img"),
+               resource_manager("../../img", "../../font/Roboto/static"),
                current_state(nullptr)
 {
     current_state = new MainMenu(resource_manager, window.getSize());
