@@ -5,16 +5,12 @@
 class GObj
 {
 protected:
-    sf::Sprite sprite;
-
 public:
     virtual ~GObj() = default;
-    GObj(const sf::Texture &t) : sprite(t) {}
-    void draw(sf::RenderWindow &);
-    void setPosition(sf::Vector2f);
-    void setScale(sf::Vector2f);
-    sf::FloatRect getGlobalBounds() const;
-    sf::Vector2i getSize() const;
+    virtual void draw(sf::RenderWindow &) = 0;
+    virtual void setPosition(sf::Vector2f) = 0;
+    virtual void setScale(sf::Vector2f) = 0;
+    virtual sf::FloatRect getGlobalBounds() const = 0;
 };
 
 #endif
