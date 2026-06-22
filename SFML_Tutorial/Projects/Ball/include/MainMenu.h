@@ -1,15 +1,15 @@
 #ifndef __MAIN_MENU__
 #define __MAIN_MENU__
 #include "Button.h"
-#include "GObj.h"
 #include "Transition.h"
 #include "ResourceManaegr.h"
 #include "State.h"
+#include "BackGround.h"
 
 class MainMenu : public State
 {
 private:
-    GObj back_ground;
+    BackGround back_ground;
     Button start;
     Button load;
     Button exit;
