@@ -13,7 +13,6 @@ private:
     Button start;
     Button load;
     Button exit;
-
     void onMouseButtonReleased(const sf::Event::MouseButtonReleased &);
 
 public:

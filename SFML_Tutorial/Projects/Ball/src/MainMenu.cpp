@@ -1,29 +1,41 @@
 #include "MainMenu.h"
 #include "ResourceManager.h"
+#include "GObj.h"
 #include "LayOut.h"
 #include "State.h"
 #include <iostream>
-MainMenu::MainMenu(ResourceManager &resource, sf::Vector2u w) : State(w),
-                                                                back_ground(
-                                                                    resource.getTexture("background.png")),
-                                                                start(resource.getTexture("start_button.png"),
-                                                                      resource.getFont(""),
-                                                                      ,
-                                                                      "start"),
-                                                                load(resource.getTexture("load_button.png")),
-                                                                exit(resource.getTexture("exit_button.png"))
+const sf::Color BLUE = sf::Color(0x8DAED6FF);
+const sf::Color GREEN = sf::Color(0x59C756FF);
+const sf::Color RED = sf::Color(0xD44242FF);
+constexpr float MENU_BUTTON_SPACING = 10;
+MainMenu::MainMenu(ResourceManager &resource, sf::Vector2u w)
+    : State(w),
+      back_ground(resource.getTexture("background.png")),
+      start(resource.getTexture("button.png"),
+            resource.getFont("Roboto-Black.ttf"),
+            BLUE,
+            "start"),
+      load(resource.getTexture("button.png"),
+           resource.getFont("Roboto-Black.ttf"),
+           GREEN,
+           "load"),
+      exit(resource.getTexture("button.png"),
+           resource.getFont("Roboto-Black.ttf"),
+           RED,
+           "exit")
 {
-    LayOut::fill(back_ground, win_size);
+    std::cout << "resizing background\n";
+    LayOut::fill<BackGround>(back_ground, win_size);
 
-    start.setScale({0.5, 0.5});
-    load.setScale({0.5, 0.5});
-    exit.setScale({0.5, 0.5});
-    LayOut::centerVertical<GObj>(
-        {start, load, exit},
-        win_size,
-        0.1);
+    std::cout << "resizing buttons\n";
+    LayOut::fill<Button>(start, win_size, 0.2, 0.1);
+    LayOut::fill<Button>(load, win_size, 0.2, 0.1);
+    LayOut::fill<Button>(exit, win_size, 0.2, 0.1);
+
+    std::vector<std::reference_wrapper<Button>> objs = {start, load, exit};
+    std::cout << "repositioning buttons\n";
+    LayOut::centerVertical(objs, win_size, MENU_BUTTON_SPACING);
 }
-
 void MainMenu::handleEvent(const sf::Event &event)
 {
     if (event.is<sf::Event::Closed>())
