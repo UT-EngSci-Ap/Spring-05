@@ -22,3 +22,8 @@ sf::FloatRect BackGround::getGlobalBounds() const
 {
     return sprite.getGlobalBounds();
 }
+
+sf::FloatRect BackGround::getLocalBounds() const
+{
+    return sprite.getLocalBounds();
+}
