@@ -12,6 +12,7 @@ public:
     virtual void setScale(sf::Vector2f) = 0;
     virtual sf::FloatRect getGlobalBounds() const = 0;
     virtual sf::FloatRect getLocalBounds() const = 0;
+    virtual sf::Vector2f getPosition() const { return {0, 0}; }
 };
 
 #endif
