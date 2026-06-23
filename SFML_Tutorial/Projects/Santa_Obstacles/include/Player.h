@@ -1,10 +1,10 @@
 #ifndef __PLAYER__
 #define __PLAYER__
-#include "Entity.h"
+#include "MGObj.h"
 #include <SFML/Graphics.hpp>
 #include "Direction.h"
 
-class Player : public Entity
+class Player : public MGObj
 {
 private:
     sf::Sprite sprite;
@@ -22,7 +22,8 @@ public:
     void setScale(sf::Vector2f) override;
     sf::FloatRect getGlobalBounds() const override;
     sf::FloatRect getLocalBounds() const override;
-    void update(float dt) override;
+    void moveX(float dt) override;
+    void moveY(float dt) override;
     sf::Vector2f getPosition() const override;
     void jump();
     void startMoveRight();

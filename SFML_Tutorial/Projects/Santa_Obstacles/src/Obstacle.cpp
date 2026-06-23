@@ -32,7 +32,6 @@ Direction Obstacle::calculateSide(sf::FloatRect main_rect, sf::FloatRect sub_rec
     }
 }
 
-void Obstacle::update(float dt) {}
 void Obstacle::draw(sf::RenderWindow &window)
 {
     window.draw(sprite);

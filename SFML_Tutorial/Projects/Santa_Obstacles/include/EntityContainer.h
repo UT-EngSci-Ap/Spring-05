@@ -2,7 +2,7 @@
 #define __ENTITY_CONTAINER__
 #include "GObjContainer.h"
 
-class EntityContainer : public GObjContainer
+class MGObjContainer : public GObjContainer
 {
 private:
 public:

@@ -34,10 +34,10 @@ void ObstacleContainer::draw(sf::RenderWindow &window)
     }
 }
 
-void ObstacleContainer::update(float dt)
+void ObstacleContainer::handleView(float left_bound)
 {
     auto first_bound = obstacles.front()->getGlobalBounds();
-    if (first_bound.position.x + first_bound.size.x < 0)
+    if (first_bound.position.x + first_bound.size.x < left_bound)
     {
         obstacles.pop_front();
         spawnObstacle();

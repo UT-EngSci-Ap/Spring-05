@@ -1,13 +1,13 @@
 #ifndef __OBSTACLE_CONTAINER__
 #define __OBSTACLE_CONTAINER__
-#include "EntityContainer.h"
+#include "GObjContainer.h"
 #include "Obstacle.h"
 #include "Player.h"
 #include <list>
 #include <memory>
 #include "Collision.h"
 
-class ObstacleContainer : public EntityContainer
+class ObstacleContainer : public GObjContainer
 {
 private:
     std::list<std::unique_ptr<Obstacle>> obstacles;
@@ -20,7 +20,7 @@ private:
 public:
     ObstacleContainer(sf::Texture &, sf::Vector2u, sf::Vector2u, float);
     void draw(sf::RenderWindow &) override;
-    void update(float dt) override;
+    void handleView(float);
     std::optional<Collision> detectCollision(sf::FloatRect);
 };
 

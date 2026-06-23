@@ -1,6 +1,6 @@
 #ifndef __PLAYER__
 #define __PLAYER__
-#include "Entity.h"
+#include "MGObj.h"
 #include <SFML/Graphics.hpp>
 
 enum Dir
@@ -10,7 +10,7 @@ enum Dir
     NONE
 };
 
-class Player : public Entity
+class Player : public MGObj
 {
 private:
     sf::Sprite sprite;

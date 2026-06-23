@@ -1,11 +1,11 @@
 #ifndef __OBSTACLE__
 #define __OBSTACLE__
-#include "Entity.h"
+#include "MGObj.h"
 #include <SFML/Graphics.hpp>
 #include "Direction.h"
 #include "Collision.h"
 
-class Obstacle : public Entity
+class Obstacle : public GObj
 {
 private:
     sf::Sprite sprite;
@@ -13,7 +13,6 @@ private:
 
 public:
     Obstacle(sf::Texture &);
-    void update(float dt) override;
     void draw(sf::RenderWindow &) override;
     void setPosition(sf::Vector2f) override;
     void setScale(sf::Vector2f) override;
