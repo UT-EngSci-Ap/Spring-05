@@ -13,10 +13,15 @@ private:
     BackGround back_ground;
     Player player;
     ObstacleContainer obstacle_container;
+    sf::View view;
+    float max_camera_x;
     void onKeyPressed(const sf::Event::KeyPressed &);
     void onKeyReleased(const sf::Event::KeyReleased &);
     void manageBound();
-    void manageCollision(sf::Vector2f);
+    void manageXCollision();
+    void manageYCollision();
+    float getViewLeftBound();
+    void handleView();
 
 public:
     Play(ResourceManager &, sf::Vector2u);
