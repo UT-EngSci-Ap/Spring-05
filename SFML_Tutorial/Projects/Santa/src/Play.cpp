@@ -68,10 +68,6 @@ void Play::handleEvent(const sf::Event &event)
 void Play::draw(sf::RenderWindow &window)
 {
     back_ground.draw(window);
-    for (auto &obstacle : obstacles)
-    {
-        obstacle->draw(window);
-    }
     player.draw(window);
 }
 
