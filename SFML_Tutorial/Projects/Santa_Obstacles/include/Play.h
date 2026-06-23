@@ -4,25 +4,25 @@
 #include "ResourceManager.h"
 #include "Player.h"
 #include "BackGround.h"
-#include "Obstacle.h"
 #include <list>
 #include <memory>
-
+#include "ObstacleContainer.h"
 class Play : public State
 {
 private:
     BackGround back_ground;
     Player player;
-    std::list<std::unique_ptr<Obstacle>> obstacles;
+    ObstacleContainer obstacle_container;
     void onKeyPressed(const sf::Event::KeyPressed &);
     void onKeyReleased(const sf::Event::KeyReleased &);
+    void manageBound();
+    void manageCollision(sf::Vector2f);
 
 public:
     Play(ResourceManager &, sf::Vector2u);
     void handleEvent(const sf::Event &) override;
     void draw(sf::RenderWindow &) override;
     void update(float dt) override;
-    void manageBound();
 };
 
 #endif
