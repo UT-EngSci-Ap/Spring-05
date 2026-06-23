@@ -58,6 +58,7 @@ void MainMenu::draw(sf::RenderWindow &window)
 
 Transition MainMenu::getTransition() const
 {
+    std::cout << "got transition\n";
     return transition;
 }
 
@@ -67,11 +68,7 @@ void MainMenu::onMouseButtonReleased(const sf::Event::MouseButtonReleased &mouse
     {
         if (start.isHovered(mouse.position))
         {
-            std::cout << "on start button\n";
-        }
-        else if (load.isHovered(mouse.position))
-        {
-            std::cout << "on load button\n";
+            transition = PLAY;
         }
         else if (exit.isHovered(mouse.position))
         {
