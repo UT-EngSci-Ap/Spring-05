@@ -29,3 +29,11 @@ void Game::run()
         }
     }
 }
+
+Game::~Game()
+{
+    if (main_menu != nullptr)
+    {
+        delete main_menu;
+    }
+}

@@ -15,6 +15,7 @@ private:
 
 public:
     Game();
+    ~Game();
     void run();
     void handleTransition();
 };

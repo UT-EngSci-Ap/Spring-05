@@ -47,3 +47,11 @@ void Game::handleTransition()
     }
     }
 }
+
+Game::~Game()
+{
+    if (current_state != nullptr)
+    {
+        delete current_state;
+    }
+}
