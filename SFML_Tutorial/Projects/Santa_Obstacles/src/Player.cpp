@@ -27,7 +27,6 @@ sf::FloatRect Player::getLocalBounds() const
 {
     return sprite.getLocalBounds();
 }
-#include <iostream>
 void Player::update(float dt)
 {
     sf::Vector2f move({velocity.x * dt,
@@ -53,7 +52,6 @@ void Player::jump()
 }
 void Player::startMoveRight()
 {
-    std::cout << "speed: " << velocity.x << '\n';
     if (dir == RIGHT)
         return;
 
@@ -65,7 +63,6 @@ void Player::startMoveRight()
 
 void Player::startMoveLeft()
 {
-    std::cout << "speed: " << velocity.x << '\n';
     if (dir == LEFT)
         return;
 
@@ -90,12 +87,14 @@ void Player::stopMoveLeft()
     dir = NONE;
     velocity = {0, velocity.y};
 }
-void Player::stopVerMove()
-{
-    velocity = {velocity.x, 0};
-}
-
 void Player::releaseJump()
 {
     is_jumping = false;
+}
+void Player::stopJump()
+{
+    if (velocity.y < 0)
+    {
+        velocity = {velocity.x, 0};
+    }
 }
