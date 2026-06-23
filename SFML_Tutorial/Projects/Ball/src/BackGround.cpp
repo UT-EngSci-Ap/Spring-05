@@ -3,6 +3,10 @@
 #include "ResourceManager.h"
 BackGround::BackGround(const sf::Texture &t) : sprite(t) {}
 
+BackGround::BackGround(const sf::Texture &t, sf::Vector2f v) : sprite(t), red_channel(v)
+{
+}
+
 void BackGround::draw(sf::RenderWindow &window)
 {
     window.draw(sprite);
@@ -26,4 +30,9 @@ sf::FloatRect BackGround::getGlobalBounds() const
 sf::FloatRect BackGround::getLocalBounds() const
 {
     return sprite.getLocalBounds();
+}
+
+sf::Vector2f BackGround::getRedChannel() const
+{
+    return red_channel;
 }
