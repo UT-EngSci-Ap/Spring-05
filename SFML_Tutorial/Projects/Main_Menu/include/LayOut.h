@@ -1,5 +1,5 @@
-#ifndef __LayOut__
-#define __LayOut__
+#ifndef __LAYOUT__
+#define __LAYOUT__
 #include <vector>
 #include "GObj.h"
 
