@@ -14,6 +14,7 @@ private:
     sf::Vector2f velocity;
     Direction dir;
     bool is_jumping;
+    ;
 
 public:
     Player(const sf::Texture &, float, float, sf::Vector2f);
@@ -32,6 +33,7 @@ public:
     void stopMoveLeft();
     void releaseJump();
     void stopJump();
+    void onGround();
 };
 
 #endif

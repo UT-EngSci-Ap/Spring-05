@@ -1,6 +1,12 @@
 #include "../../Santa_Obstacles/include/Player.h"
 
-Player::Player(const sf::Texture &t, float s, float j, sf::Vector2f a) : sprite(t), move_speed(s), jump_speed(j), acc(a), velocity({0, 0}), dir(NONE), is_jumping(false)
+Player::Player(const sf::Texture &t, float s, float j, sf::Vector2f a) : sprite(t),
+                                                                         move_speed(s),
+                                                                         jump_speed(j),
+                                                                         acc(a),
+                                                                         velocity({0, 0}),
+                                                                         dir(NONE),
+                                                                         is_jumping(false)
 {
     const auto &bounds = sprite.getLocalBounds();
     sprite.setOrigin({bounds.position.x,
@@ -97,6 +103,9 @@ void Player::stopMoveLeft()
 }
 void Player::releaseJump()
 {
+    velocity = {
+        velocity.x,
+        0};
     is_jumping = false;
 }
 void Player::stopJump()
