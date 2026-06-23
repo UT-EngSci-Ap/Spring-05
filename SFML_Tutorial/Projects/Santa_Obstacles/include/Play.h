@@ -5,7 +5,7 @@
 #include "Player.h"
 #include "BackGround.h"
 #include "Obstacle.h"
-#include <vector>
+#include <list>
 #include <memory>
 
 class Play : public State
@@ -13,7 +13,7 @@ class Play : public State
 private:
     BackGround back_ground;
     Player player;
-    std::vector<std::unique_ptr<Obstacle>> obstacles;
+    std::list<std::unique_ptr<Obstacle>> obstacles;
     void onKeyPressed(const sf::Event::KeyPressed &);
     void onKeyReleased(const sf::Event::KeyReleased &);
 
