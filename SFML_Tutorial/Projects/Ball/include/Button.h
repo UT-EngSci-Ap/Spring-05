@@ -20,7 +20,6 @@ public:
     void draw(sf::RenderWindow &) override;
     void setPosition(sf::Vector2f) override;
     void setScale(sf::Vector2f) override;
-
     sf::FloatRect getGlobalBounds() const override;
     sf::FloatRect getLocalBounds() const override;
 };
