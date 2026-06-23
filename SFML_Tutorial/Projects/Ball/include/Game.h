@@ -8,6 +8,7 @@
 class Game
 {
 private:
+    sf::Clock clock;
     sf::RenderWindow window;
     ResourceManager resource_manager;
     State *current_state;
@@ -15,6 +16,7 @@ private:
 public:
     Game();
     void run();
+    void handleTransition();
 };
 
 #endif

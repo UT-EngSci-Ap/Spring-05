@@ -2,6 +2,7 @@
 #include <SFML/Window.hpp>
 #include <iostream>
 #include "MainMenu.h"
+#include "Play.h"
 #include "ResourceManager.h"
 
 Game::Game() : window(sf::VideoMode({900, 600}), "Event Handling"),
@@ -20,12 +21,29 @@ void Game::run()
         {
             current_state->handleEvent(*event);
         }
+        current_state->update(clock.restart().asMilliseconds());
         window.clear(sf::Color::Black);
         current_state->draw(window);
         window.display();
-        if (current_state->getTransition() == EXIT)
-        {
-            window.close();
-        }
+        handleTransition();
+    }
+}
+
+void Game::handleTransition()
+{
+    switch (current_state->getTransition())
+    {
+    case PLAY:
+    {
+        delete current_state;
+        current_state = new Play(resource_manager, window.getSize());
+        break;
+    }
+    case EXIT:
+    {
+        delete current_state;
+        window.close();
+        break;
+    }
     }
 }
