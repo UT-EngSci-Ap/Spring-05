@@ -4,6 +4,7 @@
 enum Transition
 {
     PENDING,
+    PLAY,
     EXIT
 };
 
