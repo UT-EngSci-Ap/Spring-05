@@ -2,13 +2,7 @@
 #define __PLAYER__
 #include "Entity.h"
 #include <SFML/Graphics.hpp>
-
-enum Dir
-{
-    RIGHT,
-    LEFT,
-    NONE
-};
+#include "Direction.h"
 
 class Player : public Entity
 {
@@ -18,7 +12,7 @@ private:
     float jump_speed;
     sf::Vector2f acc;
     sf::Vector2f velocity;
-    Dir dir;
+    Direction dir;
     bool is_jumping;
 
 public:
@@ -35,7 +29,7 @@ public:
     void startMoveLeft();
     void stopMoveRight();
     void stopMoveLeft();
-    void stopVerMove();
+    void stopJump();
     void releaseJump();
 };
 
