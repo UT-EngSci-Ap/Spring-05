@@ -13,6 +13,7 @@ public:
     State(sf::Vector2u);
     virtual void handleEvent(const sf::Event &) = 0;
     virtual void draw(sf::RenderWindow &) = 0;
+    virtual void update(float dt) {};
     Transition getTransition() const;
 };
 
