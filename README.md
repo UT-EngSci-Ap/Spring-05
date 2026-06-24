@@ -21,6 +21,7 @@ This repository contains all assignments and projects for the **Advanced Program
  ┣ 📂 CA2/
  ┣ 📂 CA3/
  ┣ 📂 CA4/
+ ┣ 📂 SFML_Tutorial/
  ┣ 📂 Quizzes/
  ┣ 📄 Clean_Code.pdf
  ┣ 📄 Git_GitHub_Cheat_Sheet.pdf
