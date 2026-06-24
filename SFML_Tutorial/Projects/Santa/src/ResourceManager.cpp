@@ -11,15 +11,15 @@ sf::Texture &ResourceManager::getTexture(const std::string &name)
         return *(it->second);
     }
 
-    auto newTexture = std::make_unique<sf::Texture>();
+    auto new_texture = std::make_unique<sf::Texture>();
 
-    if (!newTexture->loadFromFile(textures_dir + "/" + name))
+    if (!new_texture->loadFromFile(textures_dir + "/" + name))
     {
         throw std::runtime_error("Failed to load texture: " + name);
     }
 
-    sf::Texture &ref = *newTexture;
-    textures[name] = std::move(newTexture);
+    sf::Texture &ref = *new_texture;
+    textures[name] = std::move(new_texture);
 
     return ref;
 }
@@ -31,15 +31,15 @@ sf::Font &ResourceManager::getFont(const std::string &name)
         return *(it->second);
     }
 
-    auto newFont = std::make_unique<sf::Font>();
+    auto mew_font = std::make_unique<sf::Font>();
 
-    if (!newFont->openFromFile(fonts_dir + "/" + name))
+    if (!mew_font->openFromFile(fonts_dir + "/" + name))
     {
         throw std::runtime_error("Failed to load font: " + name);
     }
 
-    sf::Font &ref = *newFont;
-    fonts[name] = std::move(newFont);
+    sf::Font &ref = *mew_font;
+    fonts[name] = std::move(mew_font);
 
     return ref;
 }

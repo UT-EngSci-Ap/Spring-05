@@ -11,27 +11,27 @@ namespace LayOut
         sf::FloatRect area,
         float spacing = 0.f)
     {
-        float totalHeight = 0.f;
+        float total_height = 0.f;
 
         for (auto &object : objects)
         {
             auto bounds = object.get().getGlobalBounds();
-            totalHeight += bounds.size.y;
+            total_height += bounds.size.y;
         }
 
-        totalHeight += spacing * (objects.size() - 1);
+        total_height += spacing * (objects.size() - 1);
 
-        float currentY =
-            area.position.y + (area.size.y - totalHeight) / 2.f;
+        float current_y =
+            area.position.y + (area.size.y - total_height) / 2.f;
 
         for (auto &obj : objects)
         {
             auto bounds = obj.get().getGlobalBounds();
 
             obj.get().setPosition({area.position.x + (area.size.x - bounds.size.x) / 2.f,
-                                   currentY});
+                                   current_y});
 
-            currentY += bounds.size.y + spacing;
+            current_y += bounds.size.y + spacing;
         }
     }
     template <typename SizOPosable>
@@ -40,27 +40,27 @@ namespace LayOut
         sf::FloatRect area,
         float spacing = 0.f)
     {
-        float totalWidth = 0.f;
+        float total_width = 0.f;
 
         for (auto &object : objects)
         {
             auto bounds = object.get().getGlobalBounds();
-            totalWidth += bounds.size.x;
+            total_width += bounds.size.x;
         }
 
-        totalWidth += spacing * (objects.size() - 1);
+        total_width += spacing * (objects.size() - 1);
 
-        float currentX =
-            area.position.x + (area.size.x - totalWidth) / 2.f;
+        float current_x =
+            area.position.x + (area.size.x - total_width) / 2.f;
 
         for (auto &obj : objects)
         {
             auto bounds = obj.get().getGlobalBounds();
 
-            obj.get().setPosition({currentX,
+            obj.get().setPosition({current_x,
                                    area.position.y + (area.size.y - bounds.size.y) / 2.f});
 
-            currentX += bounds.size.x + spacing;
+            current_x += bounds.size.x + spacing;
         }
     }
     template <typename SizOPosable>

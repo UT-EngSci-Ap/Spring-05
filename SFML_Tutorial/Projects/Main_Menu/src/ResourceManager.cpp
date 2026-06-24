@@ -8,15 +8,15 @@ sf::Texture &ResourceManager::getTexture(const std::string &name)
         return *(it->second);
     }
 
-    auto newTexture = std::make_unique<sf::Texture>();
+    auto new_texture = std::make_unique<sf::Texture>();
 
-    if (!newTexture->loadFromFile(src_dir + "/" + name))
+    if (!new_texture->loadFromFile(src_dir + "/" + name))
     {
         throw std::runtime_error("Failed to load texture: " + name);
     }
 
-    sf::Texture &ref = *newTexture;
-    textures[name] = std::move(newTexture);
+    sf::Texture &ref = *new_texture;
+    textures[name] = std::move(new_texture);
 
     return ref;
 }

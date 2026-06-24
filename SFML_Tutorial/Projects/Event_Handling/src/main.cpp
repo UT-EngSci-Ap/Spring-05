@@ -1,5 +1,5 @@
 #include <SFML/Window.hpp>
-#include "game.h"
+#include "Game.h"
 
 int main()
 {

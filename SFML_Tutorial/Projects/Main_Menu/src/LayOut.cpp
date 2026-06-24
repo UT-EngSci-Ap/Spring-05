@@ -3,23 +3,23 @@
 
 void LayOut::centerVertical(const std::vector<std::reference_wrapper<GObj>> objects, sf::Vector2u win_size, float spacing)
 {
-    float totalHeight = 0.f;
+    float total_height = 0.f;
     for (auto &object : objects)
     {
-        totalHeight += object.get().getSize().y;
+        total_height += object.get().getSize().y;
     }
-    totalHeight += spacing * (objects.size() - 1);
+    total_height += spacing * (objects.size() - 1);
 
-    float currentY =
-        (static_cast<float>(win_size.y) - totalHeight) / 2.f;
+    float current_y =
+        (static_cast<float>(win_size.y) - total_height) / 2.f;
 
     for (auto &obj : objects)
     {
         auto size = obj.get().getSize();
         obj.get().setPosition({(static_cast<float>(win_size.x) - size.x) / 2.f,
-                               currentY});
+                               current_y});
 
-        currentY += size.y + spacing;
+        current_y += size.y + spacing;
     }
 }
 void LayOut::fill(GObj &object, sf::Vector2u win_size)
