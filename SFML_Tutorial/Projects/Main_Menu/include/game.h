@@ -14,6 +14,7 @@ private:
     void processEvents();
 
 public:
+    ~Game();
     Game();
     void run();
 };
