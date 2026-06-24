@@ -2,7 +2,6 @@
 #include "LayOut.h"
 
 constexpr float TEXT_BUTTON_SCALE = 0.6;
-constexpr unsigned int BUTTON_TEXT_CHARACTER_SIZE = 10;
 constexpr float BUTTON_TEXT_VERTICAL_OFFSET = -7.f;
 
 Button::Button(sf::Texture &texture, const sf::Font &f, sf::Color clr, const std::string &str)
@@ -10,7 +9,6 @@ Button::Button(sf::Texture &texture, const sf::Font &f, sf::Color clr, const std
 {
     texture.setSmooth(true);
     text.setString(str);
-    text.setCharacterSize(BUTTON_TEXT_CHARACTER_SIZE);
     sprite.setColor(clr);
     updateLayout();
 }
