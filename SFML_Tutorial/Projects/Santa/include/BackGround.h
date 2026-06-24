@@ -1,0 +1,23 @@
+#ifndef __BACK_GROUND__
+#define __BACK_GROUND__
+#include <SFML/Graphics.hpp>
+#include "GObj.h"
+#include "ResourceManager.h"
+class BackGround : GObj
+{
+private:
+    sf::Sprite sprite;
+    sf::Vector2f red_channel;
+
+public:
+    BackGround(const sf::Texture &);
+    BackGround(const sf::Texture &, sf::Vector2f);
+    void draw(sf::RenderWindow &) override;
+    void setPosition(sf::Vector2f) override;
+    void setScale(sf::Vector2f) override;
+    sf::FloatRect getGlobalBounds() const override;
+    sf::FloatRect getLocalBounds() const override;
+    sf::Vector2f getRedChannel() const;
+};
+
+#endif
