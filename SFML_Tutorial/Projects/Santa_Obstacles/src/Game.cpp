@@ -43,6 +43,7 @@ void Game::handleTransition()
     case EXIT:
     {
         delete current_state;
+        current_state = nullptr;
         window.close();
         break;
     }

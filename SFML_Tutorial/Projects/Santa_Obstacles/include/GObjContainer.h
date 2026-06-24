@@ -6,6 +6,7 @@ class GObjContainer
 {
 private:
 public:
+    virtual ~GObjContainer() = default;
     virtual void draw(sf::RenderWindow &) = 0;
 };
 
