@@ -25,7 +25,7 @@ This repository contains all assignments and projects for the **Advanced Program
  ┣ 📂 Quizzes/
  ┣ 📄 Clean_Code.pdf
  ┣ 📄 Git_GitHub_Cheat_Sheet.pdf
- ┗ 📂 FinalProject/
+ ┗ 📂 Final Project/
     ┣ 📂 Phase1/
     ┗ 📂 Phase2/
 ```
@@ -50,7 +50,7 @@ The final project is divided into **2 phases**:
 
 | Phase | Description | Status |
 |-------|-------------|--------|
-| Phase 1 | First phase of the final project | ![Status](https://img.shields.io/badge/status-upcoming-blue) |
+| Phase 1 | First phase of the final project | ![Status](https://img.shields.io/badge/status-released-green) |
 | Phase 2 | Second phase of the final project | ![Status](https://img.shields.io/badge/status-upcoming-blue) |
 
 ---
