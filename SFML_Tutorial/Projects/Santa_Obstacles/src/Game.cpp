@@ -6,7 +6,7 @@
 #include "ResourceManager.h"
 
 Game::Game() : window(sf::VideoMode({900, 600}), "Event Handling"),
-               resource_manager("../../img", "../../font/Roboto/static"),
+               resource_manager("../../assets/img", "../../assets/font/Roboto/static"),
                current_state(nullptr)
 {
     window.setVerticalSyncEnabled(false);
@@ -46,5 +46,12 @@ void Game::handleTransition()
         window.close();
         break;
     }
+    }
+}
+Game::~Game()
+{
+    if (current_state != nullptr)
+    {
+        delete current_state;
     }
 }
