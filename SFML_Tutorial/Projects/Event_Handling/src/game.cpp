@@ -2,6 +2,9 @@
 #include <SFML/Window.hpp>
 #include <iostream>
 
+constexpr unsigned int WINDOW_WIDTH = 800;
+constexpr unsigned int WINDOW_HEIGHT = 600;
+
 void Game::processEvents()
 {
     window.handleEvents(
@@ -58,7 +61,7 @@ void Game::onMouseMoved(const sf::Event::MouseMoved &event)
 
 void Game::run()
 {
-    window.create(sf::VideoMode({800, 600}), "Event Handling");
+    window.create(sf::VideoMode({WINDOW_WIDTH, WINDOW_HEIGHT}), "Event Handling");
 
     while (window.isOpen())
     {

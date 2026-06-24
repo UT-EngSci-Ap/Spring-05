@@ -4,7 +4,10 @@
 #include "MainMenu.h"
 #include "ResourceManager.h"
 
-Game::Game() : window(sf::VideoMode({900, 600}), "Event Handling"),
+constexpr unsigned int WINDOW_WIDTH = 900;
+constexpr unsigned int WINDOW_HEIGHT = 600;
+
+Game::Game() : window(sf::VideoMode({WINDOW_WIDTH, WINDOW_HEIGHT}), "Event Handling"),
                resource_manager("../../img"),
                main_menu(nullptr)
 {

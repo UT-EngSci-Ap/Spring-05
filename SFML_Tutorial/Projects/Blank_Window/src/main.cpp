@@ -1,8 +1,11 @@
 #include <SFML/Window.hpp>
 
+constexpr unsigned int WINDOW_WIDTH = 800;
+constexpr unsigned int WINDOW_HEIGHT = 600;
+
 int main()
 {
-    sf::Window window(sf::VideoMode({800, 600}), "Blank Window");
+    sf::Window window(sf::VideoMode({WINDOW_WIDTH, WINDOW_HEIGHT}), "Blank Window");
 
     while (window.isOpen())
     {

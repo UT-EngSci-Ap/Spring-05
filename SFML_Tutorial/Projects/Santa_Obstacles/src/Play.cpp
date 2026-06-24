@@ -5,16 +5,25 @@
 #include <iostream>
 #include "Play.h"
 
+constexpr float GROUND_OFFSET = 30.f;
+constexpr float PLAYER_MOVE_SPEED = 1.f;
+constexpr float PLAYER_JUMP_SPEED = 2.5f;
+constexpr float PLAYER_GRAVITY = 0.01f;
+constexpr float PLAYER_WIDTH = 88.25f;
+constexpr float PLAYER_HEIGHT = 140.25f;
+constexpr unsigned int OBSTACLE_SIZE = 70;
+constexpr float OBSTACLE_DISTANCE_DEGREE = 2.5f;
+
 Play::Play(ResourceManager &resource_manager, sf::Vector2u win_size) : State(win_size),
                                                                        back_ground(resource_manager.getTexture("background.png"),
-                                                                                   {0, static_cast<float>(win_size.y) - 30}),
+                                                                                   {0, static_cast<float>(win_size.y) - GROUND_OFFSET}),
                                                                        player(resource_manager.getTexture("player.png"),
-                                                                              /*move_speed*/ 1,
-                                                                              /*jump_speed*/ 2.5,
-                                                                              /*acceleration*/ {0, 0.01}),
+                                                                              /*move_speed*/ PLAYER_MOVE_SPEED,
+                                                                              /*jump_speed*/ PLAYER_JUMP_SPEED,
+                                                                              /*acceleration*/ {0, PLAYER_GRAVITY}),
                                                                        obstacle_container(resource_manager.getTexture("obstacle.png"), win_size,
-                                                                                          {70, 70},
-                                                                                          2.5),
+                                                                                          {OBSTACLE_SIZE, OBSTACLE_SIZE},
+                                                                                          OBSTACLE_DISTANCE_DEGREE),
                                                                        max_camera_x(win_size.x / 2.f)
 
 {
@@ -23,8 +32,8 @@ Play::Play(ResourceManager &resource_manager, sf::Vector2u win_size) : State(win
     view.setSize(sf::Vector2f(win_size));
 
     LayOut::fill(back_ground, win_size);
-    LayOut::fill(player, sf::Vector2f({88.25, 140.25}));
-    player.setPosition({0, static_cast<float>(win_size.y) - 30});
+    LayOut::fill(player, sf::Vector2f({PLAYER_WIDTH, PLAYER_HEIGHT}));
+    player.setPosition({0, static_cast<float>(win_size.y) - GROUND_OFFSET});
 }
 
 void Play::onKeyPressed(const sf::Event::KeyPressed &event)

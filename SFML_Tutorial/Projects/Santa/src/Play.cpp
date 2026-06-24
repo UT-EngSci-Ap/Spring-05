@@ -3,18 +3,25 @@
 #include "ResourceManager.h"
 #include "LayOut.h"
 
+constexpr float GROUND_OFFSET = 30.f;
+constexpr float PLAYER_MOVE_SPEED = 1.f;
+constexpr float PLAYER_JUMP_SPEED = 3.f;
+constexpr float PLAYER_GRAVITY = 0.02f;
+constexpr float PLAYER_WIDTH = 88.25f;
+constexpr float PLAYER_HEIGHT = 140.25f;
+
 Play::Play(ResourceManager &resource_manager, sf::Vector2u win_size) : State(win_size),
                                                                        back_ground(resource_manager.getTexture("background.png"),
-                                                                                   {0, static_cast<float>(win_size.y) - 30}),
+                                                                                   {0, static_cast<float>(win_size.y) - GROUND_OFFSET}),
                                                                        player(resource_manager.getTexture("player.png"),
-                                                                              /*move_speed*/ 1,
-                                                                              /*jump_speed*/ 3,
-                                                                              /*acceleration*/ {0, 0.02})
+                                                                              /*move_speed*/ PLAYER_MOVE_SPEED,
+                                                                              /*jump_speed*/ PLAYER_JUMP_SPEED,
+                                                                              /*acceleration*/ {0, PLAYER_GRAVITY})
 
 {
     LayOut::fill(back_ground, win_size);
-    LayOut::fill(player, sf::Vector2f({88.25, 140.25}));
-    player.setPosition({0, static_cast<float>(win_size.y) - 30});
+    LayOut::fill(player, sf::Vector2f({PLAYER_WIDTH, PLAYER_HEIGHT}));
+    player.setPosition({0, static_cast<float>(win_size.y) - GROUND_OFFSET});
 }
 
 void Play::onKeyPressed(const sf::Event::KeyPressed &event)

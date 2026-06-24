@@ -2,6 +2,10 @@
 #include "ResourceManager.h"
 #include "LayOut.h"
 #include <iostream>
+
+constexpr float BUTTON_SCALE = 0.5f;
+constexpr float MENU_BUTTON_SPACING = 0.1f;
+
 MainMenu::MainMenu(ResourceManager &resource, sf::Vector2u win_size) : back_ground(resource.getTexture("background.png")),
                                                                        start(resource.getTexture("start_button.png")),
                                                                        load(resource.getTexture("load_button.png")),
@@ -9,13 +13,13 @@ MainMenu::MainMenu(ResourceManager &resource, sf::Vector2u win_size) : back_grou
 {
     LayOut::fill(back_ground, win_size);
 
-    start.setScale({0.5, 0.5});
-    load.setScale({0.5, 0.5});
-    exit.setScale({0.5, 0.5});
+    start.setScale({BUTTON_SCALE, BUTTON_SCALE});
+    load.setScale({BUTTON_SCALE, BUTTON_SCALE});
+    exit.setScale({BUTTON_SCALE, BUTTON_SCALE});
     LayOut::centerVertical(
         {start, load, exit},
         win_size,
-        0.1);
+        MENU_BUTTON_SPACING);
 }
 
 void MainMenu::handleEvent(const sf::Event &event)

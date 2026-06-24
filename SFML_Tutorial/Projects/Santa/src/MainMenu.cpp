@@ -8,6 +8,8 @@ const sf::Color BLUE = sf::Color(0x8DAED6FF);
 const sf::Color GREEN = sf::Color(0x59C756FF);
 const sf::Color RED = sf::Color(0xD44242FF);
 constexpr float MENU_BUTTON_SPACING = 10;
+constexpr float BUTTON_FILL_WIDTH_RATIO = 0.2f;
+constexpr float BUTTON_FILL_HEIGHT_RATIO = 0.1f;
 MainMenu::MainMenu(ResourceManager &resource, sf::Vector2u w)
     : State(w),
       back_ground(resource.getTexture("background.png")),
@@ -28,9 +30,9 @@ MainMenu::MainMenu(ResourceManager &resource, sf::Vector2u w)
     LayOut::fill<BackGround>(back_ground, win_size);
 
     std::cout << "resizing buttons\n";
-    LayOut::fill<Button>(start, win_size, 0.2, 0.1);
-    LayOut::fill<Button>(load, win_size, 0.2, 0.1);
-    LayOut::fill<Button>(exit, win_size, 0.2, 0.1);
+    LayOut::fill<Button>(start, win_size, BUTTON_FILL_WIDTH_RATIO, BUTTON_FILL_HEIGHT_RATIO);
+    LayOut::fill<Button>(load, win_size, BUTTON_FILL_WIDTH_RATIO, BUTTON_FILL_HEIGHT_RATIO);
+    LayOut::fill<Button>(exit, win_size, BUTTON_FILL_WIDTH_RATIO, BUTTON_FILL_HEIGHT_RATIO);
 
     std::vector<std::reference_wrapper<Button>> objs = {start, load, exit};
     std::cout << "repositioning buttons\n";
