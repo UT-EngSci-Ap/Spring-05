@@ -7,11 +7,14 @@
 
 constexpr unsigned int WINDOW_WIDTH = 900;
 constexpr unsigned int WINDOW_HEIGHT = 600;
+constexpr unsigned int FRAMERATE_LIMIT = 120;
+constexpr float MICROSECONDS_PER_MILLISECOND = 1000.f;
 
 Game::Game() : window(sf::VideoMode({WINDOW_WIDTH, WINDOW_HEIGHT}), "Event Handling"),
                resource_manager("../../assets/img", "../../assets/font/Roboto/static"),
                current_state(nullptr)
 {
+    window.setFramerateLimit(FRAMERATE_LIMIT);
     current_state = new MainMenu(resource_manager, window.getSize());
 }
 
@@ -24,7 +27,7 @@ void Game::run()
         {
             current_state->handleEvent(*event);
         }
-        current_state->update(clock.restart().asMilliseconds());
+        current_state->update(clock.restart().asMicroseconds() / MICROSECONDS_PER_MILLISECOND);
         window.clear(sf::Color::Black);
         current_state->draw(window);
         window.display();

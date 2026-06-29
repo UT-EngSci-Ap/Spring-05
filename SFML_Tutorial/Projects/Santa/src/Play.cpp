@@ -4,7 +4,7 @@
 #include "LayOut.h"
 
 constexpr float GROUND_OFFSET = 30.f;
-constexpr float PLAYER_MOVE_SPEED = 1.f;
+constexpr float PLAYER_MOVE_SPEED = 0.6f;
 constexpr float PLAYER_JUMP_SPEED = 3.f;
 constexpr float PLAYER_GRAVITY = 0.02f;
 constexpr float PLAYER_WIDTH = 88.25f;

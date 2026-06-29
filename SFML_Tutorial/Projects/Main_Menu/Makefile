@@ -4,29 +4,35 @@
 SRC_DIR = src
 BUILD_DIR = build
 MY_INCLUDE_DIR = include
-SFML_INCLUDE_DIR = ../../SFML/include
-SFML_LIB_DIR = ../../SFML/lib
 
 DEBUG_DIR = bin/debug
 RELEASE_DIR = bin/release
 
 # =====================
+# SFML (via pkg-config)
+# =====================
+# Works with Homebrew SFML on macOS and system SFML on Linux.
+# Requires: brew install sfml  (macOS)  /  apt install libsfml-dev (Linux)
+SFML_MODULES = sfml-graphics sfml-window sfml-system
+SFML_CFLAGS := $(shell pkg-config --cflags $(SFML_MODULES))
+SFML_LIBS   := $(shell pkg-config --libs $(SFML_MODULES))
+
+# =====================
 # Compiler
 # =====================
-CXX = g++
+CXX = c++
 CXXFLAGS = -std=c++17 -Wall -MMD -MP
-INCFLAGS = -I$(SFML_INCLUDE_DIR) -I$(MY_INCLUDE_DIR)
-LIBFLAGS = -L$(SFML_LIB_DIR) -lsfml-graphics -lsfml-window -lsfml-system
+INCFLAGS = $(SFML_CFLAGS) -I$(MY_INCLUDE_DIR)
+LIBFLAGS = $(SFML_LIBS)
 
 # =====================
 # File Names
 # =====================
-
 SRC = $(wildcard $(SRC_DIR)/*.cpp)
 OBJ = $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRC))
 DEP = $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.d,$(SRC))
-RELEASE = $(RELEASE_DIR)/game.exe
-DEBUG = $(DEBUG_DIR)/game_debug.exe
+RELEASE = $(RELEASE_DIR)/game
+DEBUG = $(DEBUG_DIR)/game_debug
 
 # =====================
 # Make rules
@@ -51,5 +57,10 @@ $(DEBUG): $(OBJ)
 	@mkdir -p $(DEBUG_DIR)
 	$(CXX) $(CXXFLAGS) -g $^ -o $@ $(LIBFLAGS)
 
+run: release
+	./$(RELEASE)
+
 clean:
 	rm -rf $(BUILD_DIR) $(RELEASE) $(DEBUG)
+
+.PHONY: all release debug run clean
