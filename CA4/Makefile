@@ -1,15 +1,12 @@
-# Terminal Music Player — build file
-#
-# Run the resulting binary FROM THE PROJECT ROOT so the fixed data paths
-# (Data/library.csv, Data/Playlists/, Data/settings.cfg) resolve correctly:
-#
-#     make
-#     ./music_player
-
 CXX       := clang++
-CXXFLAGS  := -std=c++17 -Wall -Wextra -O2
+# Added -I$(INCDIR) so the compiler knows where to find your headers
+CXXFLAGS  := -std=c++17 -Wall -Wextra -O2 -I$(INCDIR)
 TARGET    := music_player
+
+# Directory definitions
 SRCDIR    := src
+INCDIR    := include
+
 SRCS      := $(wildcard $(SRCDIR)/*.cpp)
 OBJS      := $(SRCS:.cpp=.o)
 
