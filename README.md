@@ -51,7 +51,7 @@ The final project is divided into **2 phases**:
 | Phase | Description | Status |
 |-------|-------------|--------|
 | Phase 1 | First phase of the final project | ![Status](https://img.shields.io/badge/status-released-green) |
-| Phase 2 | Second phase of the final project | ![Status](https://img.shields.io/badge/status-upcoming-blue) |
+| Phase 2 | Second phase of the final project | ![Status](https://img.shields.io/badge/status-released-green) |
 
 ---
 
